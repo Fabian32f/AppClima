@@ -14,4 +14,6 @@
     <string name="texto_boton_Cancun">Clima de la ciudad de Cancun</string>
     <string name="texto_boton_Tulum">Clima de la ciudad de Tulum</string>
     <string name="texto_boton_Morelos">Clima de la ciudad de Morelos</string>
+    <string name="texto_boton_Shanghai">Clima de la ciudad de Shanghai</string>
+
 </resources>
