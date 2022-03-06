@@ -21,28 +21,28 @@
 
     <TextView
         android:id="@+id/tvCiudad"
-        android:layout_width="wrap_content"
+        android:layout_width="359dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="54dp"
-        android:layout_marginEnd="59dp"
-        android:layout_marginBottom="417dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="419dp"
         android:text="@string/texto_ciudad"
         android:textColor="@color/color_ciudad"
         android:textSize="34sp" />
 
     <TextView
         android:id="@+id/tvEstatus"
-        android:layout_width="117dp"
+        android:layout_width="237dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="140dp"
-        android:layout_marginEnd="154dp"
-        android:layout_marginBottom="359dp"
+        android:layout_marginStart="107dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginBottom="360dp"
         android:text="@string/texto_estatus"
         android:textColor="@color/color_estatus"
         android:textSize="24sp" />

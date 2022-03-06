@@ -2,8 +2,14 @@ package com.cbtis.appclima
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,7 +28,21 @@ class MainActivity : AppCompatActivity() {
 
         val ciudad = intent.getStringExtra("com.cbtis.appclima.ciudades.CIUDAD")
 
-        Toast.makeText(this, ciudad, Toast.LENGTH_SHORT).show()
+
+        if(Network.hayRed(this) ){
+            //ejecutar solicitud http
+            solicitudHTTPVolley("http://api.openweathermap.org/data/2.5/weather?id=3530597&appid={2dc9c9cad42415e73767d224608395ed}")
+            //2dc9c9cad42415e73767d224608395ed
+        }else{
+            //mostrar mensaje error
+
+        }
+            /*
+        Toast.makeText(this, ciudad, Toast.LENGTH_SHORT).show()//en caso de error mover
+
+
+
+
 
         val ciudadmx = Ciudad("Ciudad de México", 15, "Soleado")
         val ciudadBerlin = Ciudad("Ciudad de Berlin", 30, "Cielo despejado")
@@ -71,6 +91,25 @@ class MainActivity : AppCompatActivity() {
         }else{
             Toast.makeText(this, "No se encuentra la informacion", Toast.LENGTH_SHORT).show()
         }
-
+            */
     }
+
+    private fun solicitudHTTPVolley(url: String){
+        val queue = Volley.newRequestQueue(this)
+
+        val solicitud = StringRequest(Request.Method.GET, url, Response.Listener<String>{
+            response ->
+            try {
+                Log.d("solicitudHTTPVolley", response)
+
+                val gson = Gson ()
+                val ciudad = gson.fromJson(response, Ciudad::class.java)
+            }catch (e: Exception){
+
+            }
+        }, Response.ErrorListener {})
+                queue.add(solicitud)
+    }
+
+
 }

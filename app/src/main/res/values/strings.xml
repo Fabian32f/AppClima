@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Clima</string>
+    <string name="app_name">Clima -    Fabian Kinil Adame</string>
     <string name="texto_grados">23°</string>
     <string name="texto_ciudad">Ciudad de Mexico</string>
     <string name="texto_estatus">Nublado</string>
