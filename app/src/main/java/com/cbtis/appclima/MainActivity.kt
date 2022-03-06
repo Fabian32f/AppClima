@@ -29,13 +29,13 @@ class MainActivity : AppCompatActivity() {
         val ciudad = intent.getStringExtra("com.cbtis.appclima.ciudades.CIUDAD")
 
 
-        if(Network.hayRed(this) ){
-            //ejecutar solicitud http
-            solicitudHTTPVolley("http://api.openweathermap.org/data/2.5/weather?id=3530597&appid={2dc9c9cad42415e73767d224608395ed}")
-            //2dc9c9cad42415e73767d224608395ed
-        }else{
-            //mostrar mensaje error
+        if(Network.hayRed(this)){
+            // ejecutar solicitud HTTP
+            solicitudHTTPVolley("http://api.openweathermap.org/data/2.5/weather?id="+ciudad+"&appid=2dc9c9cad42415e73767d224608395ed&units=metric&lang=es")
 
+        }else{
+            // mostrar mensaje de error
+            Toast.makeText(this, "No hay red", Toast.LENGTH_SHORT).show()
         }
             /*
         Toast.makeText(this, ciudad, Toast.LENGTH_SHORT).show()//en caso de error mover
@@ -103,11 +103,16 @@ class MainActivity : AppCompatActivity() {
                 Log.d("solicitudHTTPVolley", response)
 
                 val gson = Gson ()
+
                 val ciudad = gson.fromJson(response, Ciudad::class.java)
+                tvCiudad?.text = ciudad.name
+                tvGrados?.text = ciudad.main?.temp.toString()+"°"
+                tvEstatus?.text = ciudad.wheater?.get(0)?.description
+
             }catch (e: Exception){
 
             }
-        }, Response.ErrorListener {})
+        }, Response.ErrorListener { })
                 queue.add(solicitud)
     }
 
