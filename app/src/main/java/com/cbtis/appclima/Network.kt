@@ -8,9 +8,9 @@ class Network {
 
     companion object {
         fun hayRed(activity: AppCompatActivity): Boolean {
-            val connecttivityManager =
+            val connectivityManager =
                 activity.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val networkInfo = connecttivityManager.activeNetworkInfo
+            val networkInfo = connectivityManager.activeNetworkInfo
             return networkInfo != null && networkInfo.isConnected
         }
     }

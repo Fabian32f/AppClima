@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         if(Network.hayRed(this)){
             // ejecutar solicitud HTTP
-            solicitudHTTPVolley("http://api.openweathermap.org/data/2.5/weather?id="+ciudad+"&appid=2dc9c9cad42415e73767d224608395ed&units=metric&lang=es")
+        solicitudHTTPVolley("https://api.openweathermap.org/data/2.5/weather?id="+ciudad+"&appid=2dc9c9cad42415e73767d224608395ed&units=metric&lang=es")
 
         }else{
             // mostrar mensaje de error
@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity() {
                 val ciudad = gson.fromJson(response, Ciudad::class.java)
                 tvCiudad?.text = ciudad.name
                 tvGrados?.text = ciudad.main?.temp.toString()+"°"
-                tvEstatus?.text = ciudad.wheater?.get(0)?.description
+                tvEstatus?.text = ciudad.weather?.get(0)?.description
 
             }catch (e: Exception){
 
